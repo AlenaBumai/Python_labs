@@ -2,6 +2,9 @@ from random import randint
 
 import numpy
 import random
+
+import numpy as np
+
 # 1 Ввести три числа m, n, p. Подсчитать количество отрицательных чисел.
 print ("задание 1")
 s=0
@@ -211,12 +214,36 @@ elif a8 == 6:
 elif a8 == 7:
     print("семь")
 
-    #ЗАДАНИЕ 2
+    #*****************************************ЗАДАНИЕ 2
+
     print("ЗАДАНИЕ 2\n")
     print("задача 1 . автобусный билет")
     ## 1. Шестизначный автобусный билет считается удачным,
     # #если сумма его цифр делится на 7.
     # Могут ли два билета подряд быть удачными?
+
+#задача 1 последовательные билеты с совпадающей суммой цифр
+a=10
+num=[]
+sum1=0
+
+for i in range(9999):
+    for i in range(len(str(a))):
+        b=a
+        num.append(b-(b//10)*10) #1
+        b//=10
+    num.append(b)
+    if sum1==sum(num):
+        break
+    else:
+      num.clear()
+      a=a+1
+print(f"{sum1} -сумма цифр")
+print(a)
+print(a-1)
+print("последовательные числа")
+
+#*************************************
 
 print("задача 2. выручка фирмы")
 print("Введите выручку фирмы за день")
@@ -232,7 +259,99 @@ else:
         i=i+1
 print(F"{P} такая выручка будет достигнута за {i} дней")
 
+#*************************************3 УЧЕНИКИ
+print("задача 3 . данные об учащихся")
 
+print("Введите количество учеников в классе от 3 до 20")
+n = int(input())
+np_arr1 = np.array(
+    [[random.randint(0, 1), random.randint(150, 180), random.randint(40, 90), random.randint(2014, 2016)],
+     [random.randint(0, 1), random.randint(150, 180), random.randint(40, 90), random.randint(2014, 2016)]])
+# случайные данные об учениках
+for i in range(n - 2):
+    np_arr2 = np.array(
+        [[random.randint(0, 1), random.randint(150, 180), random.randint(40, 90), random.randint(2014, 2016)]])
+    np_arr1 = np.append(np_arr1, np_arr2, axis=0)
+
+print("данные об учениках (пол - 0/1, рост, вес, др), сформированные случайным образом")
+
+print(np_arr1)
+
+# сколько мальчиков, сколько девочек
+column = np_arr1[:, 0]
+s1 = sum(column)
+print(f"{s1} - мальчиков, {n - s1} девочек ")
+
+# средний возраст
+AV = 0
+for i in range(n):
+    AV = AV + (2024 - np_arr1[i, 3])
+print(AV / n)
+print("средний возраст")
+
+# самый высокий мальчик вечит больше всех?
+MaxMH = 0
+numMH = 0
+MaxMW = 0
+numMW = 0
+# самая юнная девочка самая низкая
+MaxFYear = 0
+numFY = 0
+MinFH = 300
+numFH = 0
+for i in range(n):
+    if np_arr1[i, 0] == 1:
+        if np_arr1[i, 1] > MaxMH:
+            MaxMH = np_arr1[i, 1]
+            numMH = i
+        if np_arr1[i, 2] > MaxMW:
+            MaxMW = np_arr1[i, 2]
+            numMW = i
+    else:
+        if np_arr1[i, 3] > MaxFYear:
+            MaxFYear = np_arr1[i, 3]
+            numFY = i
+        if np_arr1[i, 1] < MinFH:
+            MinFH = np_arr1[i, 1]
+            numFH = i
+
+print(f"Мальчики - {MaxMH} наибольший рост {numMH} номер ученика {MaxMW} наибольший вес {numMW} номер ученика")
+print(
+    f"Девочки - {2024 - MaxFYear} наименьший возраст {numFY} номер ученика {MinFH} наименьший рост {numFH} номер ученика")
+
+#*************************************
+print("задача 4 . амортизация оборудования")
+print("ведите количество лет, в течение которых закупалось оборудование")
+n=int(input())
+year=[]
+price=[]
+s_total=0
+for i in range(n):
+    year.append(2024-i)
+    print(f"{2024-i}  - укажите сумму закупки оборудования для этого года")
+    s = float(input())
+    price.append(s)
+    s_am=s-s*0.05*i
+    s_total=s_total+s_am# всего  = прибавить цена нового минус цена * кол-во лет * % амортизации
+
+print("годы закупки оборудования и цена")
+for i in range(n):
+    print(f"{year[i]} год {price[i]} цена")
+print(f"{s_total} цена оборудования с учетом амортизации 5%  в год")
+#посчитать изменение знака в последовательности
+print("задача 5 . кол-во изменений знака в последовательности")
+number=[random.randint(-100,100) for i in range(40)]
+number.append(0)
+print("массив случайных числел")
+print(number)
+print(f"{number.index(0)} - индекс первого нуля")):
+ch=0
+while number[i]!=0:
+    if i==0:
+        continue
+    else:
+
+    s=number
 
 
 print("ЗАДАНИЕ 3\n")
