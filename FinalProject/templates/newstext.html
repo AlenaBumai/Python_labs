@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ topic.topic }}</title>
+</head>
+<body>
+    <h1>{{ topic.topic }}</h1>
+        <p>Дата публикации: {{ topic.pub_date }}</p>
+
+    <h2>Связанные новости:</h2>
+<ul>
+        {% for news in news_texts %}
+            <li>{{ news.text }}</li>  <!-- Выводим текст новостей -->
+        {% empty %}
+            <li>Нет связанных новостей.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Назад к списку новостей</a>
+</body>
+</html>

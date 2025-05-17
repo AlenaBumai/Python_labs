@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Defoult title{% endblock title %}</title>
+</head>
+<body>
+ <div><a href="{% url 'index' %}">Главная</a> | <a href="{% url 'contacts' %}">Контакты</a></div>
+    <h1>{% block header %}{% endblock header %}</h1>
+    <div>{% block content%}{% endblock content %}</div>
+    <div>MyCorp. 2025. All rights reserved.</div>
+</body>
+</html>
