@@ -5,9 +5,41 @@
     <title>{% block title %}Defoult title{% endblock title %}</title>
 </head>
 <body>
- <div><a href="{% url 'index' %}">Главная</a> | <a href="{% url 'contacts' %}">Контакты</a></div>
-    <h1>{% block header %}{% endblock header %}</h1>
-    <div>{% block content%}{% endblock content %}</div>
-    <div>MyCorp. 2025. All rights reserved.</div>
+<div class="container">
+    
+    <div><a href="{% url 'index' %}">Главная</a> | <a href="{% url 'contacts' %}">Контакты</a></div>
+        <h1>{% block header %}{% endblock header %}</h1>
+    
+    {% if user.is_authenticated %}
+                <p class="text-right">
+                    Hello, {{ user.username }}!
+                    <a href="/news/logout">Log out</a> |
+                    <a href="/news/password-change">
+                        Change password
+                    </a>
+                </p>
+            {% else %}
+                <p class="text-right">
+                    <a href="/news/login">Log in</a> |
+                    <a href="/news/register">Register</a>
+                </p>
+            {% endif %}
+
+<hr class="mt-0 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    {% block main %}
+                    {% endblock %}
+                </div>
+            </div>
+
+        <div class="card">
+            <div>{% block content%}{% endblock content %}</div>
+        </div>>
+
+        <div>MyCorp. 2025. All rights reserved.</div>
+
+    </div>>
+</div>
 </body>
 </html>
