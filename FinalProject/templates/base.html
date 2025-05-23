@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" 
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" 
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
     <title>{% block title %}Defoult title{% endblock title %}</title>
 </head>
 <body>
@@ -34,7 +39,22 @@
             </div>
 
         <div class="card">
-            <div>{% block content%}{% endblock content %}</div>
+{% load static %}
+   
+<p id="date">Текущая дата:</p>
+
+<script src="{% static 'js/current_date.js' %}"></script>
+                    
+
+<div class="col-lg-4 col-md-4 col-sm-12">
+    <img src="{% static 'img/news1.jpg' %}" class="img-fluid" alt="News Image">
+</div>
+    
+        
+
+            <div>{% block content%}
+
+            {% endblock content %}</div>
         </div>>
 
         <div>MyCorp. 2025. All rights reserved.</div>

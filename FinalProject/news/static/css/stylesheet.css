@@ -1,0 +1,13 @@
+body{
+    background: aliceblue;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    }
+h1, h2, h3
+{font-size: 32px;
+font-weight: bold;}
+li
+{font-size: 16px;
+    border: medium solid lightcyan;
+    margin: 20px;
+}
